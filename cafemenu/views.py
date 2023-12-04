@@ -5,3 +5,6 @@ from django.contrib import messages
 # Create your views here.
 def home_page(request):
     return render(request, 'cafemenu/main_page.html')
+
+def contact(request):
+    return render(request, 'cafemenu/contact.html')
