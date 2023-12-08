@@ -152,3 +152,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
