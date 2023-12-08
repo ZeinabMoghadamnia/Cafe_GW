@@ -29,7 +29,7 @@ class MenuItem(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.item_name)
-        super().save(*args, **kwargs)     # ask abolfazl
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return f'{self.item_name()}'
