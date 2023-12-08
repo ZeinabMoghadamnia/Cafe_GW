@@ -25,4 +25,6 @@ class MenuItem(models.Model):
         return f'{self.item_name()}'
 
 
-class 
+class Image(models.Model):
+    path = models.CharField(max_length=255)
+    item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')
