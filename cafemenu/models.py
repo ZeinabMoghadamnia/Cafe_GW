@@ -8,6 +8,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)  # ask abolfazl
     updated_at = models.DateTimeField(auto_now=True)    # ask abolfazl
+    # slug = models.SlugField()    # ask abolfazl
     
     def __str__(self):
         return self.category_name()
