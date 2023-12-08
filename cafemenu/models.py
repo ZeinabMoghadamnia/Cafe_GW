@@ -7,7 +7,7 @@ from django.utils import timezone
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)    # ask abolfazl
+    updated_at = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True, blank=True, max_length=255)
 
     def save(self, *args, **kwargs):
