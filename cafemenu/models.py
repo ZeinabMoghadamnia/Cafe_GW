@@ -33,3 +33,7 @@ class Image(models.Model):
     
 class ShoppingCart(models.Model):
     item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')    # ask abolfazl
+    quantity = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    total_price = models.IntegerField()
