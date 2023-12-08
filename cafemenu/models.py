@@ -27,5 +27,5 @@ class MenuItem(models.Model):
 
 class Image(models.Model):
     path = models.CharField(max_length=255)
-    item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')
-    # user_id
+    item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')    # ask abolfazl
+    # user_id     # ask abolfazl
