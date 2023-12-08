@@ -32,4 +32,4 @@ class Image(models.Model):
     
     
 class ShoppingCart(models.Model):
-    item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')
+    item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='MenuItem')    # ask abolfazl
