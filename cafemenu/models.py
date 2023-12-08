@@ -13,7 +13,7 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.category_name)
-        super().save(*args, **kwargs)    # ask abolfazl
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return self.category_name()
