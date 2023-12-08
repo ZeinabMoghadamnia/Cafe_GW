@@ -8,7 +8,12 @@ class Category(models.Model):
     category_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)  # ask abolfazl
     updated_at = models.DateTimeField(auto_now=True)    # ask abolfazl
-    # slug = models.SlugField()    # ask abolfazl
+    slug = models.SlugField(unique=True, blank=True, max_length=255)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.category_name)
+        super().save(*args, **kwargs)    # ask abolfazl
     
     def __str__(self):
         return self.category_name()
@@ -17,9 +22,14 @@ class Category(models.Model):
 class MenuItem(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='menuitem') # ask abolfazl for related name and first item
     item_name = models.CharField(max_length=150)
-    price = models.IntegerField()
-    mojoudi = models.IntegerField()
-    # slug = models.SlugField()    # ask abolfazl
+    price = models.PositiveIntegerField()
+    mojoudi = models.PositiveIntegerField()
+    slug = models.SlugField(unique=True, blank=True, max_length=255)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.item_name)
+        super().save(*args, **kwargs)     # ask abolfazl
     
     def __str__(self):
         return f'{self.item_name()}'
@@ -32,7 +42,7 @@ class Image(models.Model):
     
 # class ShoppingCart(models.Model):
 #     item_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='shoppingcart')    # ask abolfazl
-#     quantity = models.IntegerField()
+#     quantity = models.PositiveIntegerField()
 #     created_at = models.DateTimeField(auto_now_add=True) # ask abolfazl
 #     updated_at = models.DateTimeField(auto_now=True)    # ask abolfazl
-#     total_price = models.IntegerField()
+#     total_price = models.PositiveIntegerField()
