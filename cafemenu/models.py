@@ -9,7 +9,8 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True, blank=True, max_length=255)
-
+    sub_image = models.ImageField('category_image', upload_to='category_img/', height_field=None, width_field=None,null=True,blank=True)
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.category_name)
@@ -36,9 +37,8 @@ class MenuItem(models.Model):
 
 
 class Image(models.Model):
-    
-    path = models.CharField(max_length=255)
-    
+
+    sub_image = models.ImageField('Menu_Item_Image',  upload_to='menu_item_img/', height_field=None, width_field=None, null=True,blank=True)
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='image')
     
     
