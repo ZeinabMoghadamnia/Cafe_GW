@@ -11,6 +11,9 @@ class CustomerUser(AbstractUser):
         (CUSTOMERUSER_CUSTOMER,'customer'),
         (CUSTOMERUSER_MANAGER,'manager')
     )
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
     birth_day = models.DateField(null=True, blank=True)
     mobile_regex = RegexValidator(regex='^(\+98|0)?9\d{9}$', message="Phone number must be entered in the format: '+989199999933'.")
     phone_number = models.CharField(validators=[mobile_regex], max_length=20)
