@@ -18,7 +18,10 @@ class MenuItem(models.Model):
     item_name = models.CharField(max_length=150)
     price = models.IntegerField()
     mojoudi = models.IntegerField()
+    # slug = models.SlugField()
     
     def __str__(self):
         return f'{self.item_name()}'
 
+
+class 
