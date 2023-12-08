@@ -11,12 +11,12 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomerUser
-    list_display = ['username', 'email', 'birth_day', 'is_staff']
+    list_display = ['username', 'email', 'birth_day', 'phone_number']
     fieldsets = UserAdmin.fieldsets + (
-        ('jafar', {'fields': ('birth_day',)}),
+        ('Others', {'fields': ('birth_day','phone_number','city','address','image', 'user_type')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ('birth_day',)}),
+        (None, {'fields': ('birth_day','phone_number','city','address','image')}),
     )
 
 
