@@ -8,4 +8,4 @@ class CustomerUser(AbstractUser):
     user_type = models.CharField(max_length=20)
     city = models.CharField(max_length=30, null=True, blank=True)
     address = models.CharField(max_length=150, null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='covers/', blank=True)
