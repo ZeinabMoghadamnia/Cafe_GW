@@ -134,6 +134,8 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomerUser'
+LOGIN_REDIRECT_URL = 'home_task_view'
+LOGOUT_REDIRECT_URL = 'home_task_view'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
