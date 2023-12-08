@@ -20,7 +20,7 @@ class Category(models.Model):
 
 
 class MenuItem(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='menuitem') # ask abolfazl for related name and first item
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='menuitem')
     item_name = models.CharField(max_length=150)
     price = models.PositiveIntegerField()
     mojoudi = models.PositiveIntegerField()
