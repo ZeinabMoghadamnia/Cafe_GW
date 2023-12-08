@@ -139,6 +139,9 @@ AUTH_USER_MODEL = 'accounts.CustomerUser'
 LOGIN_REDIRECT_URL = 'home_task_view'
 LOGOUT_REDIRECT_URL = 'home_task_view'
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
