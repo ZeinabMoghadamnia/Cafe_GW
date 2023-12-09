@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Category
+{% endblock %}
+
+{% block content %}
+    {% for title in category  %}
+        <h1>{{title.category_name}}</h1>
+    {% endfor %}
+{% endblock %}

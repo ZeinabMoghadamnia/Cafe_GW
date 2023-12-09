@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Items
+{% endblock %}
+
+{% block content %}
+<h1>{{ category.category_name }}</h1>
+<ul>
+    {% for item in menu_items %}
+        <li>{{ item.item_name }} - {{ item.price }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

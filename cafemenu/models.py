@@ -17,7 +17,7 @@ class Category(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return self.category_name()
+        return self.category_name
 
 
 class MenuItem(models.Model):
@@ -33,7 +33,7 @@ class MenuItem(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f'{self.item_name()}'
+        return f'{self.item_name}'
 
 
 class Image(models.Model):
