@@ -36,25 +36,16 @@ class ItemsView(ListView):
     context_object_name = 'items'
     queryset = MenuItem.objects.values('item_name')
 
-class ItemsDetailView(ListView):
+class ItemsDetailView(DetailView):
     model = MenuItem
     template_name = 'cafemenu/item_detail_list.html'
     context_object_name = 'details'
 
-    def get_queryset(self):
-        self.item = MenuItem.objects.get(slug=self.kwargs['item_slug'])
-        return MenuItem.objects.filter(item_name=self.item)
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['item_name'] = self.item
+        # context['item_name'] = self.object
+        context['item_images'] = self.object.image.all()
         return context
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['item_images'] = self.item.image.all()
-        return context
-
 
 
 # def home_page(request):

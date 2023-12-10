@@ -11,8 +11,8 @@
     {% for image in item_images %}
         <li><img src="{{ image.sub_image.url }}" alt="{{ item_name }}"></li>
     {% endfor %}
-    {% for info in details %}
-        <li>{{ info.item_name }} - {{ info.price }} - {{ info.mojoudi }}</li>
-    {% endfor %}
+    {% comment %} {% for info in details %} {% endcomment %}
+        <li>{{ details.item_name }} - {{ details.price }} - {{ details.mojoudi }}</li>
+    {% comment %} {% endfor %} {% endcomment %}
 </ul>
 {% endblock %}

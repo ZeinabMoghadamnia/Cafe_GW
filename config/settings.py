@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "Cafe_GW",
         'USER': "postgres",
-        'PASSWORD': "0020@002062",
+        'PASSWORD': "sq8151ze",
         'HOST': "localhost",
         'PORT': "5432",
     }
