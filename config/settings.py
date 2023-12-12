@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "import_export",
     'crispy_forms',
     'crispy_bootstrap5',
     'debug_toolbar',
     'accounts',
     'cafemenu',
+    'import_export',
     "dashbord",
+
 ]
 
 
