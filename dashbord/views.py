@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView, FormView
-from .models import Post
+from cafemenu.models import MenuItem
 from .forms import ForrmatForm
 from .admin import PostResourse
 
