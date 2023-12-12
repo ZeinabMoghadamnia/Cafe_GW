@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'cafemenu',
+    "dashbord",
 ]
+
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
