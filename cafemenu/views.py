@@ -46,10 +46,16 @@ class ItemsDetailView(DetailView):
     template_name = 'cafemenu/item_detail_list.html'
     context_object_name = 'details'
 
+    # def get_queryset(self):
+    #     self.category = MenuItem.objects.get(category_id=self.kwargs['category'])
+    #     return MenuItem.objects.filter(category_id=self.category)
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # context['item_name'] = self.object
         context['item_images'] = self.object.image.all()
+        context['similar_item'] = MenuItem.objects.filter(category = self.object.category)
+        print(context['similar_item'])
         return context
 
 

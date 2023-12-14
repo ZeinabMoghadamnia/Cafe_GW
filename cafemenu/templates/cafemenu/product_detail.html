@@ -13,7 +13,7 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="row align-items-center">
                 <div class="col-md-5">
-                    <img class="card-img-top mb-5 mb-md-0" id="mainImage" src={% static "img/iced_latte.jpg" %} alt="..." />
+                    <img class="card-img-top mb-5 mb-md-0" id="mainImage" src={{ item.main_image.url }} alt="..." />
                     <div class="row mt-3 justify-content-center">
                         {% comment %} <div class="cursor-pointer rounded border-complete-200 p-1 ml-2" data-cro-id="pdp-album-open"> {% endcomment %}
                         <div class="col-md-2" data-cro-id="pdp-album-open">
