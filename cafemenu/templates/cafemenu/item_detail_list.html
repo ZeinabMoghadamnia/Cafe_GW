@@ -6,13 +6,34 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ category.category_name }}</h1>
-<ul>
-    {% for image in item_images %}
-        <li><img src="{{ image.sub_image.url }}" alt="{{ item_name }}"></li>
-    {% endfor %}
-    {% comment %} {% for info in details %} {% endcomment %}
-        <li>{{ details.item_name }} - {{ details.price }} - {{ details.mojoudi }}</li>
-    {% comment %} {% endfor %} {% endcomment %}
-</ul>
+<div class="container text-center mt-5" dir="rtl">
+    <h1>{{ item.item_name }}</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row row-cols-1">
+                <div class="col">
+                    {% for image in item_images %}
+                        {% comment %} {% if forloop.counter > 1 %} {% endcomment %}
+                        <button class="btn">
+                            <img class="rounded img-fluid mb-3" src="{{ image.sub_image.url }}" alt="{{ item_name }}">
+                        </button>
+                            {% comment %} {% endif %} {% endcomment %}
+                    {% endfor %}
+                </div>
+                {% comment %} <div class="col">Column</div>
+                {% comment %} <div class="col">Column</div> {% endcomment %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row row-cols-1">
+                {% for image in item_images %}
+                    {% if forloop.counter < 2 %}
+                        <img src="{{ image.sub_image.url }}" alt="{{ item_name }}">
+                    {% endif %}
+                {% endfor %}
+            </div>  
+            <div class="col">Column</div>
+        </div>
+    </div>  
+</div>
 {% endblock %}

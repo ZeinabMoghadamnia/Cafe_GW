@@ -26,6 +26,8 @@ class MenuItem(models.Model):
     price = models.PositiveIntegerField()
     mojoudi = models.PositiveIntegerField()
     slug = models.SlugField(unique=True, blank=True, max_length=255)
+    description = models.TextField(default="")
+    main_image = models.ImageField('Menu_Item_Main_Image',  upload_to='menu_item_img/', height_field=None, width_field=None, null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

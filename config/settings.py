@@ -51,8 +51,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'cafemenu',
-    'import_export',
-    "dashbord",
+    # "dashbord",
 
 ]
 
