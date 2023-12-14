@@ -34,13 +34,10 @@ class ItemsView(ListView):
     model = MenuItem
     template_name = 'cafemenu/items_list.html'
     context_object_name = 'items'
-    # queryset = MenuItem.objects.values('item_name', 'price', 'image')
     queryset = MenuItem.objects.prefetch_related('image')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         print(context)
-        # context['item_name'] = self.object
-        # context['item_images'] = self.object.image.all()[:1]
         return context
     
 
