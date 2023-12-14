@@ -14,7 +14,7 @@ class CategoryView(ListView):
     model = Category
     template_name = 'cafemenu/catrgory.html'
     context_object_name = 'category'
-    queryset = Category.objects.values('category_name')
+    queryset = Category.objects.all()
 
 class CategoryDetailView(ListView):
     model = MenuItem
@@ -22,7 +22,7 @@ class CategoryDetailView(ListView):
     context_object_name = 'menu_items'
 
     def get_queryset(self):
-        self.category = Category.objects.get(slug=self.kwargs['category_slug'])
+        self.category = Category.objects.get(slug=self.kwargs['slug'])
         return MenuItem.objects.filter(category=self.category)
 
     def get_context_data(self, **kwargs):

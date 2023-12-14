@@ -5,7 +5,7 @@ urlpatterns = [
     path('', HomePage.as_view(), name='home'),
     path('contact/', Contact.as_view(), name='contact'),
     path('category/', CategoryView.as_view(), name='category'),
-    path('category/<slug:category_slug>/', CategoryDetailView.as_view(), name='category-detail'),
-    path('all-items/', ItemsView.as_view(), name='all-items'),
-    path('items/<slug:slug>/', ItemsDetailView.as_view(), name='item-detail'),
+    path('category/<slug:slug>/', CategoryDetailView.as_view(), name='category_detail'),
+    path('all-items/', ItemsView.as_view(), name='all_items'),
+    path('items/<slug:slug>/', ItemsDetailView.as_view(), name='item_detail'),
 ]

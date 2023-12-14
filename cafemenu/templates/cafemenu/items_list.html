@@ -43,7 +43,7 @@
                 <img class="rounded-circle w-100 h-100" src="{{ item.main_image.url }}" alt="{{ item_name }}" style="object-fit: cover;">
                 </div>
                 <h5 class="font-weight-bold mb-4">{{item.item_name}}</h5>
-                <a href="#" class="btn btn-sm btn-secondary">سفارش</a>
+                <a href="{% url 'item_detail' slug=item.slug %}" class="btn btn-sm btn-secondary">سفارش</a>
             </div>
         </div>
         {% comment %} <h1>{{item.item_name}}</h1> {% endcomment %}
