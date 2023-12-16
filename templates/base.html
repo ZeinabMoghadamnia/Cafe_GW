@@ -41,12 +41,11 @@
                 <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         {% if user.is_authenticated %}
-                            <span class="text-white font-weight-bold">  خوش آمدی  {{ user.username }}  </span>
-                            <span class="text-white"> | </span>
-                            <a class="text-white pr-3 font-weight-bold fs-5" href="{% url 'logout' %}">خروج</a>
+                            <a class="btn btn-outline-dark d-flex justify-content-center align-items-center text-white pr-3 font-weight-bold fs-5" href="{% url 'logout' %}">خروج</a>
+                            <span class="ms-4 text-white font-weight-bold">  خوش آمدی  {{ user.username }}  </span>
                         {% else %}
-                            <a class="text-white pr-3 font-weight-bold fs-5" href="{% url 'login' %}">ورود</a>
-                            <a class="text-white pr-3 font-weight-bold fs-5" href="{% url 'signup' %}">ثبت نام </a>
+                            <a class="btn btn-outline-dark me-2 text-white pr-3 font-weight-bold fs-5" href="{% url 'login' %}">ورود</a>
+                            <a class="btn btn-outline-dark text-white pr-3 font-weight-bold fs-5" href="{% url 'signup' %}">ثبت نام </a>
                         {% endif %}
                     </div>
                     {% comment %} <div class="d-inline-flex align-items-center">
