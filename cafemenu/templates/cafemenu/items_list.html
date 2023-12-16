@@ -32,7 +32,7 @@
         <div class="col-lg-3 col-md-6 mb-4 pb-2">
             <div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">
                 <div class="bg-primary mt-n5 py-3" style="width: 80px;">
-                    <h4 class="font-weight-bold text-white mb-0">{{item.price}}$</h4>
+                    <h4 class="font-weight-bold text-white mb-0">{{item.price}}</h4>
                 </div>
                 <div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">
                 {% comment %} {% for image in item.image.all %} 
@@ -46,7 +46,6 @@
                 <a href="{% url 'item_detail' slug=item.slug %}" class="btn btn-sm btn-secondary">سفارش</a>
             </div>
         </div>
-        {% comment %} <h1>{{item.item_name}}</h1> {% endcomment %}
     {% endfor %}
     <div class="col-12 text-center">
         <a href="#" class="btn btn-primary py-3 px-5">بیشتر</a>
