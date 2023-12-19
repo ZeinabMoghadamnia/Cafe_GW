@@ -6,13 +6,14 @@ from .forms import ForrmatForm, FormGetDate
 from .admin import PostResourse
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
+from accounts.models import CustomerUser
+from datetime import date
 
 
 class HomePage(ListView, FormView):
-    template_name = "home/home.html"
+    template_name = "dashbord/home.html"
     form_class = ForrmatForm
     success_url = reverse_lazy("home:home")
-
 
     def get_queryset(self, start_date=None, end_date=None):
         if start_date and end_date:
@@ -65,3 +66,37 @@ class HomePage(ListView, FormView):
         response = HttpResponse(ds, content_type=f'{format}')
         response['Content-Disposition'] = f"attachment; filename=posts.{format}"
         return response
+
+
+class ChartListView(ListView):
+    model = CustomerUser
+    template_name = "dashbord/chart_list.html"
+    context_object_name = 'user_data'
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        age_groups = {'0-10': 0, '11-20': 0, '21-30': 0, '31-40': 0, '41+': 0}
+        today = date.today()
+
+        for user in context['user_data']:
+            if user.birth_day is not None:
+                age = today.year - user.birth_day.year - (
+                        (today.month, today.day) < (user.birth_day.month, user.birth_day.day))
+                if age <= 10:
+                    age_groups['0-10'] += 1
+                elif age <= 20:
+                    age_groups['11-20'] += 1
+                elif age <= 30:
+                    age_groups['21-30'] += 1
+                elif age <= 40:
+                    age_groups['31-40'] += 1
+                else:
+                    age_groups['41+'] += 1
+            else:
+                age = 0
+
+        context['labels'] = list(age_groups.keys())
+        context_data = list(age_groups.values())
+        context['data'] = context_data
+        return context

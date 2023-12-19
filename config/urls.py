@@ -25,6 +25,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls',namespace='accounts')),
     path('', include('cafemenu.urls',namespace='cafemenu')),
-    path('report2/', include('data_chart.urls')),
-    path('report/', include('report.urls', namespace="report")),
+    # path('report2/', include('data_chart.urls')),
+    path('dashbord/', include('dashbord.urls', namespace="dashbord")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

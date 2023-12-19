@@ -7,6 +7,5 @@ from import_export import resources
 class PostResourse(resources.ModelResource):
     class Meta:
         model = Category
-        fields = ("title", "description", "is_active", "created")
-        export_order = ("description", "is_active", "title", "created")
-
+        fields = ("category_name", "created_at")
+        export_order = ("created_at", "category_name")
