@@ -11,7 +11,7 @@ class HomePage(ListView):
     model = MenuItem
     template_name = 'cafemenu/main_page.html'
     context_object_name = 'items'
-    queryset = MenuItem.objects.prefetch_related('image').order_by('id')[:5]
+    queryset = MenuItem.objects.prefetch_related('image').order_by('id')[:6]
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
