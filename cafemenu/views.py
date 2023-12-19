@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, TemplateView
 from .models import Category, Image, MenuItem
+from cart.forms import AddToCartProductForm
 # Create your views here.
 
 # class HomePage(TemplateView):
@@ -62,6 +63,7 @@ class ItemsDetailView(DetailView):
         context['description_lines'] = description_lines
         context['item_images'] = self.object.image.all()
         context['similar_item'] = MenuItem.objects.filter(category = self.object.category)
+        context['add_to_cart_form'] = AddToCartProductForm()
         print(context['similar_item'])
         return context
 

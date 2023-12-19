@@ -27,4 +27,6 @@ urlpatterns = [
     path('', include('cafemenu.urls',namespace='cafemenu')),
     # path('report2/', include('data_chart.urls')),
     path('dashbord/', include('dashbord.urls', namespace="dashbord")),
+    path('cart/', include('cart.urls')),
+    path('order/', include('orders.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
