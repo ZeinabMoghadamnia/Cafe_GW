@@ -149,8 +149,8 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomerUser'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'cafemenu:home'
+LOGOUT_REDIRECT_URL = 'cafemenu:home'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"

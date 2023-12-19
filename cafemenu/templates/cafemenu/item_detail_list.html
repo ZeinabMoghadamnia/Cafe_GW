@@ -82,7 +82,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'item_detail' slug=item.slug %}">اضافه کردن به سبد خرید</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'cafemenu:item_detail' slug=item.slug %}">اضافه کردن به سبد خرید</a></div>
                         </div>
                     </div>
                 </div>
@@ -92,34 +92,3 @@
     </section>
 
 {% endblock content %}
-{% comment %} <div class="container text-center mt-5" dir="rtl">
-    <h1>{{ item.item_name }}</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="row row-cols-1">
-                <div class="col">
-                    {% for image in item_images %}
-                        {% comment %} {% if forloop.counter > 1 %} {% endcomment %}
-                        {% comment %} <button class="btn">
-                            <img class="rounded img-fluid mb-3" src="{{ image.sub_image.url }}" alt="{{ item_name }}">
-                        </button> {% endcomment %}
-                            {% comment %} {% endif %} {% endcomment %}
-                    {% comment %} {% endfor %} {% endcomment %}
-                {% comment %} </div> {% endcomment %}
-                {% comment %} <div class="col">Column</div>
-                {% comment %} <div class="col">Column</div> {% endcomment %}
-            {% comment %} </div>
-        </div>
-        <div class="col-md-8">
-            <div class="row row-cols-1">
-                {% for image in item_images %}
-                    {% if forloop.counter < 2 %}
-                        <img src="{{ image.sub_image.url }}" alt="{{ item_name }}">
-                    {% endif %}
-                {% endfor %}
-            </div>  
-            <div class="col">Column</div>
-        </div>
-    </div>  
-</div> {% endcomment %}
-{% comment %} {% endblock %} {% endcomment %}
