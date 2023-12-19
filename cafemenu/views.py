@@ -4,8 +4,17 @@ from django.views.generic import ListView, DetailView, DeleteView, UpdateView, T
 from .models import Category, Image, MenuItem
 # Create your views here.
 
-class HomePage(TemplateView):
+# class HomePage(TemplateView):
+#     template_name = 'cafemenu/main_page.html'
+    
+class HomePage(ListView):
+    model = MenuItem
     template_name = 'cafemenu/main_page.html'
+    context_object_name = 'items'
+    queryset = MenuItem.objects.prefetch_related('image').order_by('id')[:5]
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
     
 class Contact(TemplateView):
     template_name = 'cafemenu/contact.html'
