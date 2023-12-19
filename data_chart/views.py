@@ -7,7 +7,7 @@ from datetime import date
 
 class ChartListView(ListView):
     model = CustomerUser
-    template_name = 'data_chart/chart_list.html'
+    template_name = 'data_chart/../report/templates/home/chart_list.html'
     context_object_name = 'user_data'
 
 

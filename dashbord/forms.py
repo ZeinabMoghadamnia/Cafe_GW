@@ -1,4 +1,3 @@
-
 from django import forms
 
 BIRTH_YEAR_CHOICES = ["2022", "2023", "2024"]
