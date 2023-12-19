@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import HomePage, Contact, CategoryView, CategoryDetailView, ItemsView, ItemsDetailView
-
+app_name = 'cafemenu'
 urlpatterns = [
     path('', HomePage.as_view(), name='home'),
     path('contact/', Contact.as_view(), name='contact'),
