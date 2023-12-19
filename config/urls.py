@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('', include('cafemenu.urls')),
-    path('report', include('data_chart.urls')),
-    path('dashbord/', include('report.urls', namespace="report")),
+    path('accounts/', include('accounts.urls',namespace='accounts')),
+    path('', include('cafemenu.urls',namespace='cafemenu')),
+    path('report2/', include('data_chart.urls')),
+    path('report/', include('report.urls', namespace="report")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
