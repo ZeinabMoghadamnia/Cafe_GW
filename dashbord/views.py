@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, FormView
-from cafemenu.models import Category
+from orders.models import Order
 from .forms import ForrmatForm, FormGetDate
 from .admin import PostResourse
 from django.urls import reverse_lazy
@@ -17,10 +17,10 @@ class HomePage(ListView, FormView):
 
     def get_queryset(self, start_date=None, end_date=None):
         if start_date and end_date:
-            return Category.objects.filter(created__gte=start_date, created__lte=end_date)
+            return Order.objects.filter(created_at__gte=start_date, created_at__lte=end_date)
 
         else:
-            return Category.objects.all()
+            return Order.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -64,7 +64,7 @@ class HomePage(ListView, FormView):
             ds = dataset.xls
             format = 'xls'
         response = HttpResponse(ds, content_type=f'{format}')
-        response['Content-Disposition'] = f"attachment; filename=posts.{format}"
+        response['Content-Disposition'] = f"attachment; filename=orders.{format}"
         return response
 
 
