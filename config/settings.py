@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'accounts',
     'cafemenu',
     "dashbord",
+    'cart',
+    'orders',
 
 ]
 
@@ -80,6 +82,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+#                custom context processors
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -162,6 +167,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailOrPhoneModelBackend',
+]
 
 INTERNAL_IPS = [
     # ...

@@ -145,7 +145,6 @@
                             <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">اسپرسو</h5>
                                 <p>اسپرسو یک روش ایتالیایی برای تهیه قهوه در شات‌های بسیار غلیظ است. اسپرسو را می‌توان در فنجان‌های کوچک حمل کرد یا به عنوان پایه نوشیدنی‌های اسپرسو محبوب استفاده کرد.</p>
-                                <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">بیشتر بدانید</a>
                             </div>
                         </div>
                         <div class="service-item">
@@ -155,7 +154,6 @@
                             <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">لاته</h5>
                                 <p>لاته یک نوشیدنی قهوه با اسپرسو، شیر بخار پز و لایه‌ای از کف است. دارای یک سوم اسپرسو و دو سوم شیر بخار پز، با یک لایه نازک کف در بالا.</p>
-                                <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">بیشتر بدانید</a>
                             </div>
                         </div>
                         <div class="service-item">
@@ -165,7 +163,6 @@
                             <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">فرنچ پرس</h5>
                                 <p>فرنچ پرس یکی از ساده‌ترین و ارزان‌ترین راه‌ها برای دم کردن یک فنجان قهوه عالی است. فرنچ پرس یک پارچ کوچک با پیستون است که برای دم کردن قهوه استفاده می‌شود.</p>
-                                <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">بیشتر بدانید</a>
                             </div>
                         </div>
                         <div class="service-item">
@@ -175,7 +172,6 @@
                             <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">کاپوچینو</h5>
                                 <p>کاپوچینو یکی از معروف ترین نوشیدنی های قهوه است که ترکیبی عالی از شیر بخار پز، کف شیر و اسپرسو است. و قسمت های مساوی اسپرسو، شیر بخار پز و فوم ( هر کدام ⅓) دارد.</p>
-                                <a href="#" class="border-bottom border-secondary text-decoration-none text-secondary">بیشتر بدانید</a>
                             </div>
                         </div>
                     </div>
@@ -194,15 +190,25 @@
             </div>
         </div>
         <div class="row m-0 portfolio-container">
-            <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+            {% for item in items  %}
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item" style="height: 500px">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src={{ item.main_image.url }} alt="">
+                    <a class="portfolio-btn" href={{ item.main_image.url }} data-lightbox="portfolio" style="height: 450px">
+                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
                     <img class="img-fluid w-100" src={% static "img/iced_mocha.jpg" %} alt="">
                     <a class="portfolio-btn" href={% static "img/iced_mocha.jpg" %} data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+            </div> {% endcomment %}
+            {% comment %} <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
                     <img class="img-fluid w-100" src={% static "img/Irish.jpg" %} alt="">
                     <a class="portfolio-btn" href={% static "img/Irish.jpg" %} data-lightbox="portfolio">
@@ -241,7 +247,7 @@
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
     <!-- Portfolio End -->
@@ -273,16 +279,6 @@
                 {% endfor %}
             
             </div>
-                        {% comment %} <div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">
-                            <div class="bg-primary mt-n5 py-3" style="width: 80px;">
-                                <h4 class="font-weight-bold text-white mb-0">$100</h4>
-                            </div>
-                            <div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">
-                                <img class="rounded-circle w-100 h-100" src={% static "img/iced_americano.jpg" %} style="object-fit: cover;">
-                            </div>
-                            <h5 class="font-weight-bold mb-4">آیس آمریکانو</h5>
-                            <a href="#" class="btn btn-sm btn-secondary">بزن رو سفارش</a>
-                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>
