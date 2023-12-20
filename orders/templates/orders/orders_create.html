@@ -8,30 +8,19 @@
 {% block content %}
 
 
-<div dir="rtl">
-    <div class="breadcrumb-area bg-color ptb--90" data-bg-color="#f6f6f6">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
-                        <h1 class="page-title">سفارش</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="d-flex justify-content-center mt-5" dir="rtl">
 
-    <div class="col-xl-5 offset-xl-1 col-lg-6 mt-md--40">
+    <div class="col-xl-5 offset-xl-1 col-lg-6 mt-md--40 text-center">
         <div class="order-details">
-            <div class="checkout-title mt--10">
+            <div class="checkout-title mt--10 text-center mb-3">
                 <h2>سفارش شما</h2>
             </div>
-            <div class="table-content table-responsive mb--30">
-                <table class="table order-table order-table-2">
-                    <thead>
+            <div class="table-content table-responsive rounded-5">
+                <table class="table order-table order-table-2 mb-0">
+                    <thead >
                     <tr>
-                        <th>محصول</th>
-                        <th class="text-right">قیمت نهایی</th>
+                        <th class="text-light" style="background-color: hotpink;">محصول</th>
+                        <th class="text-right text-light" style="background-color: hotpink;">قیمت نهایی</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,23 +38,23 @@
                     </tbody>
                     <tfoot>
                     <tr class="cart-subtotal">
-                        <th>مجموع</th>
-                        <td class="text-right">{{ cart.get_total_price }} تومان</td>
+                        <th class="text-light" style="background-color: hotpink;">مجموع</th>
+                        <td class="text-right text-light" style="background-color: hotpink;">{{ cart.get_total_price }} تومان</td>
                     </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="checkout-payment">
-                <h2 class="py-5">روش پرداخت</h2>
+                <h2 class="mt-4 mb-1">روش پرداخت</h2>
                 <form action="{% url 'orders:create' %}" class="payment-form" method="post">
                     {% csrf_token %}
-                    <div class="payment-group mb--10">
+                    <div class="payment-group m-3">
                         <div class="payment-radio">
                             <input type="radio" value="bank" name="payment-method" id="bank" checked>
                             <label class="payment-label" for="cheque">درگاه آنلاین زرین پال</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark">  پرداخت </button>
+                    <button type="submit" class="btn text-light" style="background-color: hotpink;">  پرداخت </button>
                 </form>
             </div>
         </div>

@@ -10,7 +10,7 @@
 {% block content %}
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5" dir="rtl">
-            <div class="row align-items-center">
+            <div class="row text-center">
                 <div class="col-md-5">
                     <img class="card-img-top mb-5 mb-md-0" id="mainImage" src="{{ details.main_image.url }}"
                          alt="{{ item_name }}"/>
@@ -49,7 +49,7 @@
                             {% csrf_token %}
                             {{ add_to_cart_form|crispy }}
                             {#                        <button class="btn" type="submit"> اضافه کردن به سبد خرید</button>#}
-                            <button class="col-sm-6 btn btn-outline-dark flex-shrink-0 me-3" type="submit">
+                            <button class="col-sm-7 btn btn-outline-dark flex-shrink-0 me-3" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
                                 اضافه کردن به سبد خرید
                             </button>
