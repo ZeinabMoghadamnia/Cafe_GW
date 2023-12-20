@@ -34,3 +34,53 @@ class ChartListView(ListView):
         context_data = list(age_groups.values())
         context['data'] = context_data
         return context
+    
+from django.http import JsonResponse
+from django.db.models.functions import TruncHour
+from django.db.models import Count
+from .models import Order
+
+def order_per_hour_chart_data(request):
+    data = Order.objects.annotate(hour=TruncHour('created_at')).values('hour').annotate(count=Count('id')).order_by('hour')
+    
+    labels = [d['hour'].strftime('%Y-%m-%d %H:%M:%S') for d in data]
+    values = [d['count'] for d in data]
+    
+    return JsonResponse(data={'labels': labels, 'values': values})
+
+from django.views.generic import TemplateView
+from django.db.models.functions import ExtractHour
+from django.db.models import Count
+from orders.models import Order
+from django.utils import timezone
+
+class HourlyOrdersChartView(TemplateView):
+    template_name = 'data_chart/hourly_orders_chart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Assuming you want to display data for the current day
+        today_min = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        today_max = timezone.now().replace(hour=23, minute=59, second=59, microsecond=999999)
+
+        hourly_data = (
+            Order.objects
+            .filter(created_at__range=(today_min, today_max))
+            .annotate(hour=ExtractHour('created_at'))
+            .values('hour')
+            .annotate(count=Count('id'))
+            .order_by('hour')
+        )
+        
+        # Prepare data for the chart
+        hours = list(range(24))  # 0..23 for all hours in a day
+        counts = [0]*24  # initialize all counts to 0
+        for item in hourly_data:
+            counts[item['hour']] = item['count']
+        
+        # Store hours and counts in context to pass to the template
+        context['hours'] = hours
+        context['counts'] = counts
+        
+        return context
