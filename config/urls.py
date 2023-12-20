@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls',namespace='accounts')),
-    path('', include('cafemenu.urls',namespace='cafemenu')),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('', include('cafemenu.urls', namespace='cafemenu')),
     # path('report2/', include('data_chart.urls')),
     path('dashbord/', include('dashbord.urls', namespace="dashbord")),
     path('cart/', include('cart.urls')),
