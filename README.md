@@ -28,7 +28,3 @@ python3 manage.py runserver
 - [Zeinab_Moghadamnia](https://github.com/Zeinab-Mo)
 - [Kiana_Ebrahimi]()
 - [Negar_Bakhshian](https://github.com/negarbakhshian)
-
-
-
-4. Follow the on-screen instructions to use the paper scanner.
