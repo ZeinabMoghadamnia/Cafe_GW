@@ -34,4 +34,37 @@ class ChartListView(ListView):
         context_data = list(age_groups.values())
         context['data'] = context_data
         return context
-    
+
+from django.views.generic import TemplateView
+from django.db.models.functions import ExtractHour
+from django.db.models import Count
+from orders.models import Order
+from django.utils import timezone
+
+class HourlyOrdersChartView(TemplateView):
+    template_name = 'hourly_orders_chart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        today_min = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        today_max = timezone.now().replace(hour=23, minute=59, second=59, microsecond=999999)
+
+        hourly_data = (
+            Order.objects
+            .filter(created_at__range=(today_min, today_max))
+            .annotate(hour=ExtractHour('created_at'))
+            .values('hour')
+            .annotate(count=Count('id'))
+            .order_by('hour')
+        )
+        
+        hours = list(range(24))
+        counts = [0]*24 
+        for item in hourly_data:
+            counts[item['hour']] = item['count']
+        
+        context['hours'] = hours
+        context['counts'] = counts
+        
+        return context

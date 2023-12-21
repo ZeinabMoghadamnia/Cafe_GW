@@ -8,7 +8,7 @@
 {% block content %}
 <div style="text-align: center;">
 <div class="mt-4">
-<h3>تعداد مشتریان بر اساس بازه سنی</h3>
+<h3>ساعات پیک فروش</h3>
 </div>
 <div class="" style="display: inline-block; width: 35%">
 <div>
@@ -21,12 +21,12 @@
     const ctx = document.getElementById('myChart');
   
     new Chart(ctx, {
-      type: 'doughnut',
+      type: 'line',
       data: {
-        labels: {{labels|safe}},
+        labels: {{hours|safe}},
         datasets: [{
           label: 'تعداد:',
-          data: {{data|safe}},
+          data: {{counts|safe}},
           borderWidth: 1
         }]
       },

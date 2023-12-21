@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import ChartListView
+from .views import ChartListView, HourlyOrdersChartView
 
 urlpatterns = [
-    path('', ChartListView.as_view(), name='report'),
+    path('', HourlyOrdersChartView.as_view(), name='report'),
 ]

@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="container text-center d-flex justify-content-center align-items-center align-items-center mt-5">
-    <div class="col-4 py-4 text-light rounded-5" style="background-color: rgb(255, 126, 190);">
+    <div class="col-4 p-4 text-light rounded-5" style="background-color: rgb(255, 126, 190);">
 <form method="post">
     {% csrf_token %}
     {{ form | crispy }}
