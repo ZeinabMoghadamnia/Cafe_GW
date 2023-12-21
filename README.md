@@ -21,6 +21,13 @@ pip install -r requirements.txt
 ```python
 python3 manage.py runserver
 ```
+## Developers:
+-[Abolfazl_Rasouli](https://github.com/AbolfazlRasouli)
+-[Meysam_Tajik](https://github.com/meysamtj)
+-[Mahsan_Gilani](https://github.com/MahsanGilani)
+-[Zeinab_Moghadamnia](https://github.com/Zeinab-Mo)
+-[Kiana_Ebrahimi]()
+-[Negar_Bakhshian](https://github.com/negarbakhshian)
 
 
 
