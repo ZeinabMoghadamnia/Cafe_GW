@@ -3,13 +3,15 @@
 
 {% block content %}
 
+<div class="container text-center d-flex justify-content-center align-items-center align-items-center mt-5">
+    <div class="col-4 py-4 text-light rounded-5" style="background-color: rgb(255, 126, 190);">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">ok</button>
+    <button class="bg-white border-0 py-2 px-4 rounded-5" type="submit">ورود</button>
 </form>
-
-
+</div>
+</div>
 
 
 
