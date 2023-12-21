@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, TemplateView
 from .models import Category, Image, MenuItem
 from cart.forms import AddToCartProductForm
+from django.db.models import Q, F
 # Create your views here.
 
 # class HomePage(TemplateView):
@@ -16,6 +17,12 @@ class HomePage(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+def item_search(request):
+    search_query = request.GET.get('search')
+    search = MenuItem.objects.filter(Q(item_name__icontains=search_query) | Q(description__icontains=search_query) | Q(category__category_name__icontains=search_query))
+    return render(request, 'cafemenu/search.html', {'searchs': search})
+
     
 class Contact(TemplateView):
     template_name = 'cafemenu/contact.html'
