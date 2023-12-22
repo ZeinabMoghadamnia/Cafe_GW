@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {%block content  %}
+
+    <title>محصول جدید</title>
+    <form method="post">
+  <div class="mb-3">
+    <!label for="exampleInputEmail1" class="form-label">Email address</label>>
+      <! we wanna show the labels inside the field instead>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="؟" name="item">
+
+  </div>
+  <div class="mb-3">
+    <!label for="exampleInputPassword1" class="form-label">Password</label>>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="قیمت" name="price">
+  </div>
+   <div class="mb-3">
+    <!label for="exampleInputPassword1" class="form-label">age</label>>
+    <input type="text" class="" id="exampleInputPassword1" placeholder="تعداد" name="quantity">
+  </div>
+
+  <div class="mb-3">
+    <!label for="exampleInputPassword1" class="form-label">address</label>>
+    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="توضیخات\nsj,v" name="recepie">
+  </div>
+
+  <button type="submit" class="btn btn-primary">ثبت محصول</button>
+</form>

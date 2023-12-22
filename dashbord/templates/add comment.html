@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+<form method="post">
+  <fieldset disabled>
+    <legend>نظرات خود را ثبت کنید</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">نام کاربری</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="نام کاربری ثبت شده یا ایمیل">
+    </div>
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">حساب های ثبت شده شما در کافه</label>
+      <select id="disabledSelect" class="form-select">
+        <option>انتخاب</option>
+          <!move names from database to here>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">ثبت</button>
+  </fieldset>
+</form>
